@@ -3,13 +3,12 @@ from sqlalchemy.orm import Session
 from typing import List
 from .tasks import execute_code_task
 
-# These imports refer to the other files we created in the 'app' folder
 from . import models, schemas, database
 
 # 1. Initialize the Database
 database.init_db()
 
-# 2. Create the FastAPI instance (This is the "app" Uvicorn is looking for)
+# 2. Create the FastAPI instance 
 app = FastAPI(title="Edtronaut Code Execution API")
 
 # 3. Dependency to get the database session
@@ -67,7 +66,6 @@ def run_code(session_id: str, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_execution)
 
-    # Pass the correct execution_id to the task
     execute_code_task.delay(new_execution.execution_id, db_session.source_code)
     
     return {"execution_id": new_execution.execution_id, "status": "QUEUED"}

@@ -23,7 +23,6 @@ services:
   # The Celery Worker (The code executor)
   worker:
     build: .
-    # We change -A app.celery_app.celery_app to just app.celery_app
     command: celery -A app.celery_app worker --loglevel=info --pool=solo
     volumes:
       - .:/app

@@ -1,7 +1,6 @@
 import os
 import sys
 
-# This line tells Python to look at the current folder for the 'app' module
 sys.path.append(os.getcwd())
 
 try:

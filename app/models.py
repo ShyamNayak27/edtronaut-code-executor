@@ -7,7 +7,6 @@ Base = declarative_base()
 
 class CodeSession(Base):
     __tablename__ = "code_sessions"
-    # Rename 'id' to 'session_id'
     session_id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     language = Column(String, default="python")
     source_code = Column(Text, default="")
@@ -16,7 +15,6 @@ class CodeSession(Base):
 
 class Execution(Base):
     __tablename__ = "executions"
-    # Rename 'id' to 'execution_id'
     execution_id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     session_id = Column(String)
     status = Column(String, default="QUEUED")

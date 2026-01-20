@@ -11,5 +11,5 @@ celery_app = Celery(
     include=["app.tasks"] 
 )
 
-# Optional: Ensure the worker uses the same queue name
+#Ensure the worker uses the same queue name
 celery_app.conf.task_default_queue = 'main_queue'
