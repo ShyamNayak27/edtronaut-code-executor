@@ -48,7 +48,7 @@ The system is fully dockerized for a "one-command" setup, fulfilling the infrast
 ### Installation Steps
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/ShyamNayak27/edtronaut-code-executor.git
     cd edtronaut-code-executor
     ```
 2.  **Start the system:**
